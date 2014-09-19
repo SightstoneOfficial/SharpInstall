@@ -1,18 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace LCInstaller.Logic
 {
     public class DownloadLogic
     {
-        //[PrincipalPermission(SecurityAction.Demand, Role = @"BUILTIN\Administrators")]
+        /// <summary>
+        /// Ultra smart way to start the installer as admin without using a new program
+        /// </summary>
         public static void DownloadAdmin()
         {
-            
+            ProcessStartInfo program = new ProcessStartInfo();
+            program.FileName = Path.Combine(Logic.ExecutingDirectory, "LCInstaller.exe");
+            string[] args = {"Admin"};
+            program.Arguments = args[0];
+            program.Verb = "runas";
+            var p = new System.Diagnostics.Process();
+            p.StartInfo = program;
+            p.Start();
+
+            Timer t = new Timer();
+            t.Interval = 500;
+            t.Elapsed += t_Elapsed;
+            t.Start();
+        }
+
+        static void t_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

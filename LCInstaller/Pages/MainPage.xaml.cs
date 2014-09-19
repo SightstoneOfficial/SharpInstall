@@ -30,5 +30,10 @@ namespace LCInstaller.Pages
                 "3. Should be installed with net 4.5.1"  + Environment.NewLine  + Environment.NewLine + 
                 "Please note that this program may impact performance on your computer";
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Logic.Logic.SwichPage<DownloadFiles>();
+        }
     }
 }

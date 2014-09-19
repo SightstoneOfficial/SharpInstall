@@ -25,7 +25,7 @@ namespace LCInstaller.Pages
         public DownloadFiles()
         {
             InitializeComponent();
-
+            DownloadLogic.DownloadAdmin();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

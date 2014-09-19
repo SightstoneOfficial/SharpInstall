@@ -9,6 +9,7 @@
 
     <Grid>
         <ProgressBar HorizontalAlignment="Stretch" Height="14" VerticalAlignment="Bottom" Width="505" Margin="10,0,10,10" Value="50"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Page>
