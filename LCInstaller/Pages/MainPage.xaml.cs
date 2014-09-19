@@ -41,5 +41,10 @@ namespace LCInstaller.Pages
         {
             Logic.Logic.SwichPage<DownloadFiles>();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Logic.Logic.SwichPage<DownloadFiles>();
+        }
     }
 }

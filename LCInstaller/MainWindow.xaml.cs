@@ -26,7 +26,17 @@ namespace LCInstaller
             InitializeComponent();
             Logic.Logic.Window = this;
             Logic.Logic.MainContainer = Main;
-            Logic.Logic.SwichPage<MainPage>();
+            Logic.Logic.ExecutingDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            var var = Logic.Logic.e.Args;
+            try
+            {                
+                if (var[0] == "Admin")
+                    Logic.Logic.SwichPage<DownloadFiles>(false);
+            }
+            catch
+            {
+                Logic.Logic.SwichPage<MainPage>();
+            }
         }
     }
 }

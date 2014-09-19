@@ -13,5 +13,9 @@ namespace LCInstaller
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            Logic.Logic.e = e;
+        }
     }
 }
