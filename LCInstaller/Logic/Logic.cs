@@ -18,6 +18,8 @@ namespace LCInstaller.Logic
         private static Type QuitPage;
         internal static StartupEventArgs e;
         public static String ExecutingDirectory;
+        public static String InstallDirectory;
+        public static String DlLink;
 
         internal static bool Installed = false;
 

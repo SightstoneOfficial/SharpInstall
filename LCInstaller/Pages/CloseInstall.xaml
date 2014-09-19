@@ -9,7 +9,7 @@
 
     <Grid>
         <TextBox x:Name="Text" HorizontalAlignment="Left" Height="589" TextWrapping="Wrap" Text="Meep" VerticalContentAlignment="Top"  VerticalAlignment="Top" Width="505" FontSize="10" Margin="10,36,0,0"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="16" Text="Cancel Installation" VerticalAlignment="Top" Margin="10,10,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Foreground="White" TextWrapping="Wrap" FontSize="16" Text="Cancel Installation" VerticalAlignment="Top" Margin="10,10,0,0"/>
         <Button Content="Continue Install" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,630,0,0" Click="Return"/>
         <Button Content="Quit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="395,630,0,0" Click="Quit"/>
 

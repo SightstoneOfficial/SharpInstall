@@ -1,8 +1,6 @@
-﻿using LCInstaller.Logic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,16 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LCInstaller.Pages
+namespace LCInstaller
 {
     /// <summary>
-    /// Interaction logic for DownloadFiles.xaml
+    /// Interaction logic for VersionSelect.xaml
     /// </summary>
-    public partial class DownloadFiles : Page
-    {        
-        public DownloadFiles()
+    public partial class VersionSelect : UserControl
+    {
+        public VersionSelect()
         {
             InitializeComponent();
+        }
+
+        private void MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

@@ -1,8 +1,6 @@
-﻿using LCInstaller.Logic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,13 +16,19 @@ using System.Windows.Shapes;
 namespace LCInstaller.Pages
 {
     /// <summary>
-    /// Interaction logic for DownloadFiles.xaml
+    /// Interaction logic for Failed.xaml
     /// </summary>
-    public partial class DownloadFiles : Page
-    {        
-        public DownloadFiles()
+    public partial class Failed : Page
+    {
+        public Failed()
         {
             InitializeComponent();
+            Logic.Logic.Installed = true;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

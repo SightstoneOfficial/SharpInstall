@@ -8,15 +8,15 @@ namespace LCInstaller.Logic
 {
     public class LCVersions
     {
-        public static string VersionId { get; set; }
-        public static string VersionName { get; set; }
-        public static string VersionDescription { get; set; }
-        public static string DownloadLink { get; set; }
-        public static bool IsPrerelease { get; set; }
-        public static bool IsBeta { get; set; }
+        public string VersionId { get; set; }
+        public string VersionName { get; set; }
+        public string VersionDescription { get; set; }
+        public string DownloadLink { get; set; }
+        public bool IsPrerelease { get; set; }
+        public bool IsBeta { get; set; }
     }
     public class LCVersionList
     {
-        List<LCVersions> VersionList;
+        public List<LCVersions> LCVersions;
     }
 }
