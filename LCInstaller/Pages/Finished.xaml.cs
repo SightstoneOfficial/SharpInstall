@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IWshRuntimeLibrary;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,27 +28,36 @@ namespace LCInstaller.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists(Path.Combine(Logic.Logic.InstallDirectory, "LCStartUpSplash.exe")))
+            if (System.IO.File.Exists(Path.Combine(Logic.Logic.InstallDirectory, "LCStartUpSplash.exe")))
             {
                 var p = new System.Diagnostics.Process();
                 p.StartInfo.FileName = Path.Combine(Logic.Logic.InstallDirectory, "LCStartUpSplash.exe");
                 p.Start();
-                if (File.Exists(Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.Log")))
-                    File.Delete(Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.Log"));
+                if (System.IO.File.Exists(Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.Log")))
+                    System.IO.File.Delete(Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.Log"));
             }
             else if (Directory.Exists(Path.Combine(Logic.Logic.InstallDirectory, "Client")))
             {
                 var p = new System.Diagnostics.Process();
                 p.StartInfo.FileName = Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.exe");
                 p.Start();
-                if (File.Exists(Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.Log")))
-                    File.Delete(Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.Log"));
+                if (System.IO.File.Exists(Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.Log")))
+                    System.IO.File.Delete(Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.Log"));
             }
             else
             {
                 var p = new System.Diagnostics.Process();
                 p.StartInfo.FileName = Path.Combine(Logic.Logic.InstallDirectory, "LegendaryClient.exe");
                 p.Start();
+            }
+            if ((bool)Shortcut.IsChecked)
+            {
+                string shortcutLocation = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "LegenadryClient" + ".lnk");
+                WshShell shell = new WshShell();
+                IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
+
+                shortcut.TargetPath = Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.exe");
+                shortcut.Save();   
             }
             Environment.Exit(0);
         }
