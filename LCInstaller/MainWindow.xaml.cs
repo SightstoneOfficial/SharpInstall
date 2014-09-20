@@ -31,7 +31,11 @@ namespace LCInstaller
             try
             {                
                 if (var[0] == "Admin")
+                {
+                    Logic.Logic.DlLink = var[1];
+                    Logic.Logic.InstallDirectory = var[2];
                     Logic.Logic.SwichPage<DownloadFiles>(false);
+                }
             }
             catch
             {

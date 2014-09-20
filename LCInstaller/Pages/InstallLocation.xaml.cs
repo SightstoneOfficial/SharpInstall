@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace LCInstaller.Pages
 {
@@ -29,6 +30,7 @@ namespace LCInstaller.Pages
             InitializeComponent();
             Load();
             Install.IsEnabled = false;
+            Logic.Logic.InstallDirectory = @"C:\LegenadryClient";
         }
 
         private void Load()
@@ -69,20 +71,41 @@ namespace LCInstaller.Pages
             DialogResult result = dialog.ShowDialog();
             if (result.ToString() == "OK")
             {
-                Location.Text = dialog.SelectedPath;
+                Location.Text = dialog.SelectedPath + "LegendaryClient";
                 Logic.Logic.InstallDirectory = Location.Text;
             }
         }
 
         private void Install_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (!Directory.Exists(Logic.Logic.InstallDirectory))
+                    Directory.CreateDirectory(Logic.Logic.InstallDirectory);
+                else
+                {
+                    if (System.Windows.MessageBox.Show("The directory that you are trying to install LegenadryClient into already exists. Delete?", "Install  Error", MessageBoxButton.YesNo , MessageBoxImage.Exclamation) == MessageBoxResult.Yes)
+                    {
+                        Directory.Delete(Logic.Logic.InstallDirectory, true);
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("The installer will now exit because the installation directory already exists", "Install Exit", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Environment.Exit(0);
+                    }
+                }
+            }
+            catch
+            {
+                DownloadLogic.DownloadAdmin();
+            }
             Logic.Logic.SwichPage<DownloadFiles>();
         }
 
         private void VersionSelectInstall_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             VersionSelect Version = new VersionSelect();
-            Version = sender as VersionSelect;
+            Version = VersionSelectInstall.SelectedItem as VersionSelect;
             Install.IsEnabled = true;
             Logic.Logic.DlLink = Version.DLTag.Text;
         }
