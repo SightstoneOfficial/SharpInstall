@@ -27,7 +27,15 @@ namespace LCInstaller.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (Directory.Exists(Path.Combine(Logic.Logic.InstallDirectory, "Client")))
+            if (File.Exists(Path.Combine(Logic.Logic.InstallDirectory, "LCStartUpSplash.exe")))
+            {
+                var p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = Path.Combine(Logic.Logic.InstallDirectory, "LCStartUpSplash.exe");
+                p.Start();
+                if (File.Exists(Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.Log")))
+                    File.Delete(Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.Log"));
+            }
+            else if (Directory.Exists(Path.Combine(Logic.Logic.InstallDirectory, "Client")))
             {
                 var p = new System.Diagnostics.Process();
                 p.StartInfo.FileName = Path.Combine(Logic.Logic.InstallDirectory, "Client", "LegendaryClient.exe");
