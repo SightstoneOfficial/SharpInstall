@@ -20,6 +20,7 @@ namespace LCInstaller.Logic
         public static String ExecutingDirectory;
         public static String InstallDirectory;
         public static String DlLink;
+        public static String Version;
 
         internal static bool Installed = false;
 

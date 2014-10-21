@@ -47,6 +47,19 @@ namespace LCInstaller.Pages
             Logic.Logic.Installed = true;
             Logic.Logic.SwichPage<Finished>();
             Directory.Delete(Path.Combine(Logic.Logic.InstallDirectory, "temp"), true);
+            var x = Path.Combine(Logic.Logic.InstallDirectory, "Client", "LC", "Version.Version");
+            var l = Path.Combine(Logic.Logic.InstallDirectory, "Client", "LC");
+            if (!Directory.Exists(l))
+                Directory.CreateDirectory(l);
+            if (!File.Exists(x))
+            {
+                //Write the version to the file
+                var y = File.Create(x);
+                y.Close();
+                StreamWriter writer = new StreamWriter(x);
+                writer.Write(Logic.Logic.Version);
+                writer.Close(); 
+            }
         }
 
         void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)

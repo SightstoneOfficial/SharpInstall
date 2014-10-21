@@ -25,6 +25,8 @@ namespace LCInstaller
             InitializeComponent();
         }
 
+        public static string Version { get; set; }
+
         private void MouseDown(object sender, MouseButtonEventArgs e)
         {
 

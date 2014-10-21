@@ -47,6 +47,7 @@ namespace LCInstaller.Pages
                 {
                     VersionSelect Version = new VersionSelect();
                     Version.DLTag.Text = Var.DownloadLink;
+                    Version.VersionTag.Text = Var.VersionId;
                     Version.LCVersion.Text = "LegenadryClient V" + Var.VersionId;
                     if (Var.IsBeta)
                         Version.ExtraStuff.Text = "Beta";
@@ -108,6 +109,7 @@ namespace LCInstaller.Pages
             Version = VersionSelectInstall.SelectedItem as VersionSelect;
             Install.IsEnabled = true;
             Logic.Logic.DlLink = Version.DLTag.Text;
+            Logic.Logic.Version = Version.VersionTag.Text;
         }
     }
 }
