@@ -1,12 +1,13 @@
 ﻿<Window
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:LCInstaller" x:Class="LCInstaller.MainWindow"
-        Title="LegendaryClient Installer" Height="700" Width="525" 
-        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" WindowStyle="None">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:LCInstaller" x:Class="LCInstaller.MainWindow"
+    Title="LegendaryClient Installer" Height="700" Width="525"
+    WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" WindowStyle="None">
     <Grid Background="Gray">
-        <local:TopBar HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <ContentControl x:Name="Main" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,30,0,0" Height="670" Width="525"/>
+        <local:TopBar HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <ContentControl x:Name="Main" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,30,0,0" Height="670"
+                        Width="525" />
 
     </Grid>
 </Window>

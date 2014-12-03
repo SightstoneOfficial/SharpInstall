@@ -1,12 +1,12 @@
-﻿using LCInstaller.Pages;
+﻿#region
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
+using LCInstaller.Pages;
+
+#endregion
 
 namespace LCInstaller.Logic
 {
@@ -24,46 +24,46 @@ namespace LCInstaller.Logic
 
         internal static bool Installed = false;
 
-        internal static void AbortQuit(params object[] Arguments)
+        internal static void AbortQuit(params object[] args)
         {
-            Page instance = (Page)Activator.CreateInstance(QuitPage, Arguments);
+            var instance = (Page) Activator.CreateInstance(QuitPage, args);
             var fadeOutAnimation = new DoubleAnimation(0, TimeSpan.FromSeconds(0.25));
             fadeOutAnimation.Completed += (x, y) =>
             {
                 MainContainer.Content = instance.Content;
                 var fadeInAnimation = new DoubleAnimation(1, TimeSpan.FromSeconds(0.25));
-                MainContainer.BeginAnimation(ContentControl.OpacityProperty, fadeInAnimation);
+                MainContainer.BeginAnimation(UIElement.OpacityProperty, fadeInAnimation);
             };
-            MainContainer.BeginAnimation(ContentControl.OpacityProperty, fadeOutAnimation);
+            MainContainer.BeginAnimation(UIElement.OpacityProperty, fadeOutAnimation);
             CurrentPage = QuitPage;
         }
-        internal static void SwichPage<T>(bool Fade = true, params object[] Arguments)
+
+        internal static void SwichPage<T>(bool fade = true, params object[] args)
         {
-            if (CurrentPage == typeof(T))
+            if (CurrentPage == typeof (T))
                 return;
 
-            if (typeof(T) == typeof(CloseInstall))
+            if (typeof (T) == typeof (CloseInstall))
                 QuitPage = CurrentPage;
 
-            Page instance = (Page)Activator.CreateInstance(typeof(T), Arguments);
-            CurrentPage = typeof(T);
+            var instance = (Page) Activator.CreateInstance(typeof (T), args);
+            CurrentPage = typeof (T);
 
-            if (Fade)
+            if (fade)
             {
                 var fadeOutAnimation = new DoubleAnimation(0, TimeSpan.FromSeconds(0.25));
                 fadeOutAnimation.Completed += (x, y) =>
                 {
                     MainContainer.Content = instance.Content;
                     var fadeInAnimation = new DoubleAnimation(1, TimeSpan.FromSeconds(0.25));
-                    MainContainer.BeginAnimation(ContentControl.OpacityProperty, fadeInAnimation);
+                    MainContainer.BeginAnimation(UIElement.OpacityProperty, fadeInAnimation);
                 };
-                MainContainer.BeginAnimation(ContentControl.OpacityProperty, fadeOutAnimation);
+                MainContainer.BeginAnimation(UIElement.OpacityProperty, fadeOutAnimation);
             }
             else
             {
                 MainContainer.Content = instance.Content;
             }
         }
-
     }
 }
