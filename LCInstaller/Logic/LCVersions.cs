@@ -1,8 +1,8 @@
-﻿using System;
+﻿#region
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+#endregion
 
 namespace LCInstaller.Logic
 {
@@ -15,6 +15,7 @@ namespace LCInstaller.Logic
         public bool IsPrerelease { get; set; }
         public bool IsBeta { get; set; }
     }
+
     public class LCVersionList
     {
         public List<LCVersions> LCVersions;

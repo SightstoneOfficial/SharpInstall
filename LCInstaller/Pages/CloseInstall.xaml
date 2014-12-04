@@ -1,17 +1,21 @@
 ﻿<Page x:Class="LCInstaller.Pages.CloseInstall"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
       Height="670" Width="525"
-	Title="CloseInstall">
+      Title="CloseInstall">
 
     <Grid>
-        <TextBox x:Name="Text" HorizontalAlignment="Left" Height="589" TextWrapping="Wrap" Text="Meep" VerticalContentAlignment="Top"  VerticalAlignment="Top" Width="505" FontSize="10" Margin="10,36,0,0"/>
-        <TextBlock HorizontalAlignment="Left" Foreground="White" TextWrapping="Wrap" FontSize="16" Text="Cancel Installation" VerticalAlignment="Top" Margin="10,10,0,0"/>
-        <Button Content="Continue Install" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,630,0,0" Click="Return"/>
-        <Button Content="Quit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="395,630,0,0" Click="Quit"/>
+        <TextBox x:Name="Text" HorizontalAlignment="Left" Height="589" TextWrapping="Wrap" Text="Meep"
+                 VerticalContentAlignment="Top" VerticalAlignment="Top" Width="505" FontSize="10" Margin="10,36,0,0" />
+        <TextBlock HorizontalAlignment="Left" Foreground="White" TextWrapping="Wrap" FontSize="16"
+                   Text="Cancel Installation" VerticalAlignment="Top" Margin="10,10,0,0" />
+        <Button Content="Continue Install" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"
+                Margin="10,630,0,0" Click="Return" />
+        <Button Content="Quit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="395,630,0,0"
+                Click="Quit" />
 
     </Grid>
 </Page>
