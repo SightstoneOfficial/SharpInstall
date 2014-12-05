@@ -65,11 +65,20 @@ namespace LCInstaller.Pages
 
         private void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
+            string[] sizeSuffixes = {"Bytes", "KB", "MB", "GB"};
+
             double bytesIn = double.Parse(e.BytesReceived.ToString(CultureInfo.InvariantCulture));
             double totalBytes = double.Parse(e.TotalBytesToReceive.ToString(CultureInfo.InvariantCulture));
             double percentage = bytesIn/totalBytes*100;
 
-            Bytes.Content = "Downloaded " + e.BytesReceived + " of " + e.TotalBytesToReceive;
+            decimal conversionBytesIn = (decimal) bytesIn/(1L << ((int) Math.Log(bytesIn, 1024)*10));
+            decimal conversionTotalBytes = (decimal) totalBytes/(1L << ((int) Math.Log(totalBytes, 1024)*10));
+
+            Bytes.Content = "Downloaded " +
+                            string.Format("{0:n1} {1}", conversionBytesIn, sizeSuffixes[(int) Math.Log(bytesIn, 1024)]) +
+                            " of " +
+                            string.Format("{0:n1} {1}", conversionTotalBytes,
+                                sizeSuffixes[(int) Math.Log(totalBytes, 1024)]);
 
             int half = int.Parse(Math.Truncate(percentage).ToString(CultureInfo.InvariantCulture));
             Progress.Value = half;
