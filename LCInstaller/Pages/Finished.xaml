@@ -11,9 +11,9 @@
         <Label Content="Finished" Foreground="white" HorizontalAlignment="Left" VerticalAlignment="Top"
                Margin="10,10,0,0" />
         <TextBox HorizontalAlignment="Left" Height="460"
-                 Text="LegenadaryClient has finished installing and is ready to enjoy" VerticalAlignment="Top"
+                 Text="LegendaryClient has finished installing and is ready to enjoy" VerticalAlignment="Top"
                  Width="505" VerticalContentAlignment="Top" Margin="10,41,0,0" />
-        <Button Content="Launch LegenadryClient and exit" Click="Button_Click" HorizontalAlignment="Left"
+        <Button Content="Launch LegendaryClient and exit" Click="Button_Click" HorizontalAlignment="Left"
                 VerticalAlignment="Top" Width="505" Margin="10,527,0,0" Height="133" />
         <CheckBox x:Name="Shortcut" Content="Create a shortcut to LegendaryClient on the desktop" Foreground="White"
                   IsChecked="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,506,0,0" />
