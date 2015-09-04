@@ -10,13 +10,13 @@
     <Grid>
         <ProgressBar x:Name="Progress" HorizontalAlignment="Stretch" Height="14" VerticalAlignment="Bottom" Width="505"
                      Margin="10,0,10,117" Value="0" />
-        <Label Content="Installing LegenadryClient" Foreground="White" HorizontalAlignment="Left"
+        <Label Content="Installing LegendaryClient" Foreground="White" HorizontalAlignment="Left"
                VerticalAlignment="Top" />
         <Label Content="Please wait for the program to finish installing" Foreground="White" HorizontalAlignment="Left"
                VerticalAlignment="Top" Margin="10,31,0,0" />
         <Label x:Name="DownloadFull" Content="0% finished of the total install" Foreground="White"
                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,558,0,0" />
-        <Label Content="Installing LegenadryClient.zip" Foreground="White" HorizontalAlignment="Left"
+        <Label Content="Installing LegendaryClient.zip" Foreground="White" HorizontalAlignment="Left"
                VerticalAlignment="Top" Margin="10,508,0,0" />
         <Label x:Name="Link" Content="Retreving files from:" FontSize="10" Foreground="White"
                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,472,0,0" />
